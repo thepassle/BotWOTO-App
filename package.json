@@ -130,7 +130,7 @@
   },
   "scripts": {
     "build": "webpack --env production",
-    "dev": "webpack-dev-server --env development",
+    "dev": "webpack-dev-server --env development | nodemon server.js",
     "precommit": "lint-staged",
     "lint": "eslint src/app/*.js src/views/*.js src/styles/*.js",
     "postinstall": "node utils/generate-helpers.js && npm run build",
