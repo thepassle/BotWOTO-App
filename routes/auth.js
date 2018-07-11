@@ -74,7 +74,7 @@ router.get('/twitch', passport.authenticate('twitch', { scope: 'user_read' }), f
 
 router.get('/twitch/callback', passport.authenticate('twitch'), function(req, res){
     let isMod;
-    let username = req.session.passport.user.display_name;
+    const username = req.session.passport.user.display_name;
     client.connect().then(() => {
       client.mods('bradwoto').then(moderators => {
         moderators.push('bradwoto');

@@ -71,7 +71,7 @@ class BotWotoApp extends connect(store)(LitElement) {
 	}
 
 	_search(search){
-		let query = this.shadowRoot.getElementById('search-bar').value;
+		const query = this.shadowRoot.getElementById('search-bar').value;
 
 		store.dispatch(updateSearch(query));
 	}

@@ -33,9 +33,9 @@ router.get('/commands', function (req, res) {
 
 // Add a new command  
 router.post('/commands', function (req, res) {
-    let command = req.body.command;
-    let reply = req.body.reply;
-    let clearance = req.body.clearance;
+    const command = req.body.command;
+    const reply = req.body.reply;
+    const clearance = req.body.clearance;
 
     if (!command || !reply || !clearance) {
         return res.status(400).send({ error:true, message: 'Please provide reply, command and clearance' });
@@ -50,9 +50,9 @@ router.post('/commands', function (req, res) {
  
 //  Update command by trigger
 router.put('/commands/:command', function (req, res) {
-    let command = req.body.command;
-    let reply = req.body.reply;
-    let clearance = req.body.clearance;
+    const command = req.body.command;
+    const reply = req.body.reply;
+    const clearance = req.body.clearance;
  
     if (!command || !reply || !clearance) {
         return res.status(400).send({ error: command, message: 'Please provide reply, command and clearance' });
@@ -66,7 +66,7 @@ router.put('/commands/:command', function (req, res) {
  
 //  Delete command
 router.delete('/commands/:command', function (req, res) {
-    let command = req.params.command;
+    const command = req.params.command;
      if (!command) {
         return res.status(400).send({ error: command, message: 'Please provide command to delete.' });
     }
