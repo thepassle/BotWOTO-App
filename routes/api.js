@@ -14,7 +14,6 @@ const db = mysql.createPool({
 });
 
 router.get('/commands', function (req, res) {
-    console.log('sadfasfasdf');
 	db.getConnection(function(err, connection) {
 	    db.query('SELECT * FROM '+process.env.DATABASE_TABLE+' ORDER BY command ASC', function (error, results, fields) {
     	    connection.release();

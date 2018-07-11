@@ -16,7 +16,7 @@ export default function auth(state = initialState, action) {
   	  return {
   	  	...state,
   	  	isLoggedIn: true,
-  	  	isMod: true,
+  	  	isMod: action.user.isMod,
   	  	username: action.user.display_name,
   	  	avatar: action.user.logo
   	  };

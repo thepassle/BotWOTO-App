@@ -5,13 +5,32 @@ const OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 const request        = require('request');
 const tmi = require('tmi.js');
 const router = express.Router();
+const dotenv = require("dotenv");
+const { parsed } = dotenv.config();
+
+const client = new tmi.client({
+    connection: {
+      reconnect: true,
+      secure: true
+    },
+    identity: {
+      username: 'botwoto',
+      password: process.env.TWITCH_OAUTH
+    }
+  });
+
+// Define our constants, you will change these with your own
+const TWITCH_CLIENT_ID = process.env.TWITCH_CLIENT_ID;
+const TWITCH_SECRET    = process.env.TWITCH_SECRET;
+const SESSION_SECRET   = process.env.SESSION_SECRET;
+const CALLBACK_URL     = process.env.CALLBACK_URL;
 
 OAuth2Strategy.prototype.userProfile = function(accessToken, done) {
   const options = {
     url: 'https://api.twitch.tv/kraken/user',
     method: 'GET',
     headers: {
-      'Client-ID': 'dnnrm974wmv5lywdxzkc7ckepzbrfs',
+      'Client-ID': TWITCH_CLIENT_ID,
       'Accept': 'application/vnd.twitchtv.v5+json',
       'Authorization': 'OAuth ' + accessToken
     }
@@ -37,8 +56,8 @@ passport.deserializeUser(function(user, done) {
 passport.use('twitch', new OAuth2Strategy({
     authorizationURL: 'https://api.twitch.tv/kraken/oauth2/authorize',
     tokenURL: 'https://api.twitch.tv/kraken/oauth2/token',
-    clientID: 'dnnrm974wmv5lywdxzkc7ckepzbrfs',
-    clientSecret: 'ei8g3dmvn8t5n1ffpj49xy0rshr6am',
+    clientID: TWITCH_CLIENT_ID,
+    clientSecret: TWITCH_SECRET,
     callbackURL: 'http://localhost:3000/auth/twitch/callback',
     state: true
   },
@@ -51,15 +70,23 @@ passport.use('twitch', new OAuth2Strategy({
 ));
 
 router.get('/twitch', passport.authenticate('twitch', { scope: 'user_read' }), function(req, res){
-  console.log("72:");
 });
 
 router.get('/twitch/callback', passport.authenticate('twitch'), function(req, res){
-  console.log("84:");
-  req.user.test = "test";
-  req.user.isMod = true;
-  console.log(req.user);
-  res.redirect('/');
+    let isMod;
+    let username = req.session.passport.user.display_name;
+    client.connect().then(() => {
+      client.mods('bradwoto').then(moderators => {
+        moderators.push('bradwoto');
+        if(moderators.includes(username.toLowerCase())){
+          req.user.isMod = true;
+          res.redirect('/');
+        } else {
+          req.user.isMod = false;
+          res.redirect('/');
+        }
+      });
+    });
 });
 
 module.exports = router;

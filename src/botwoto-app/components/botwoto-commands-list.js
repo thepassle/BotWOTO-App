@@ -29,6 +29,7 @@ class BotwotoCommandsList extends connect(store)(LitElement) {
 		return {
 			commands: Array,
 			isLoggedIn: Boolean,
+			isMod: Boolean,
 			search: String
 		}
 	}
@@ -37,6 +38,7 @@ class BotwotoCommandsList extends connect(store)(LitElement) {
 		super();
 		this.commands = [];
 		this.isLoggedIn = false;
+		this.isMod = false;
 		this.search = '';
 	}
 
@@ -55,7 +57,7 @@ class BotwotoCommandsList extends connect(store)(LitElement) {
 		return unsafeHTML(reply);
 	}
 
-	_render({commands, isLoggedIn, search}) {
+	_render({commands, isLoggedIn, isMod, search}) {
 		return html`
 			${SharedStyles}
 			${CommandContainerStyles}
@@ -83,7 +85,7 @@ class BotwotoCommandsList extends connect(store)(LitElement) {
 							}
 						</div>
 						<div class="table-cell reply">${this._injectEmotes(command.reply)}</div>
-						${isLoggedIn 
+						${isLoggedIn && isMod
 							? html`
 								<div class="edit">
 									<edit-icon on-tap="${() => store.dispatch(openModal({command, mode: 'edit'}))}" width="24" height="24" fill="${GREEN}"></edit-icon>
@@ -106,6 +108,7 @@ class BotwotoCommandsList extends connect(store)(LitElement) {
 
 	_stateChanged(state) {
 		this.isLoggedIn = state.auth.isLoggedIn;
+		this.isMod = state.auth.isMod;
 		this.search = state.commands.search;
 	}
 

@@ -44,6 +44,7 @@ class BotWotoApp extends connect(store)(LitElement) {
 			search: String,
 			loading: Boolean,
 			isLoggedIn: Boolean, 
+			isMod: Boolean,
 			error: Object,
 			modalMode: String,
 			selectedCommand: Object,
@@ -55,14 +56,7 @@ class BotWotoApp extends connect(store)(LitElement) {
 		}
 	}
 
-
 	// make action creators for store.dispatch(openModal({command, mode})) it can be nicer
-
-	// paper-toast when item added succes/fail
-	// store.dispatch({ type: 'SHOW_NOTIFICATION', text: 'You logged in.' })
-	// setTimeout(() => {
-	//   store.dispatch({ type: 'HIDE_NOTIFICATION' })
-	// }, 5000)
 
 	// refactor
 	// tests
@@ -91,7 +85,7 @@ class BotWotoApp extends connect(store)(LitElement) {
 		store.dispatch(logout());
 	}
 
-	_render({commands, search, loading, error, isLoggedIn, modalMode, selectedCommand, updateLoading, updateError, updateErrorMsg, toastVisible, toastMessage}) {
+	_render({commands, search, loading, error, isLoggedIn, isMod, modalMode, selectedCommand, updateLoading, updateError, updateErrorMsg, toastVisible, toastMessage}) {
 		return html`
 			${AppStyles}
 			${SharedStyles}
@@ -100,12 +94,19 @@ class BotWotoApp extends connect(store)(LitElement) {
 				<app-toolbar>
 					<h3>BotWOTO</h3>
 					<div>
-						${isLoggedIn 
-							? html`<vaadin-button theme="icon" on-tap="${() => store.dispatch(openModal({command: {}, mode: 'add'}))}" class="add" dialog-confirm autofocus>
+						${isLoggedIn
+							? 	
+							isMod	?	
+									html`<vaadin-button theme="icon" on-tap="${() => store.dispatch(openModal({command: {}, mode: 'add'}))}" class="add" dialog-confirm autofocus>
 									    <add-icon slot="prefix" width="20" height="20" fill="white"></add-icon>
 									    <span class="mb-hidden">Add</span>
 									</vaadin-button>
 									<vaadin-button on-tap="${() => this.handleLogout()}" theme="icon">
+										<logout-icon slot="prefix" width="15" height="15"></logout-icon>
+										<span class="mb-hidden">Logout</span>
+									</vaadin-button>`
+									:
+									html`<vaadin-button on-tap="${() => this.handleLogout()}" theme="icon">
 										<logout-icon slot="prefix" width="15" height="15"></logout-icon>
 										<span class="mb-hidden">Logout</span>
 									</vaadin-button>`
@@ -172,6 +173,7 @@ class BotWotoApp extends connect(store)(LitElement) {
 		this.search = state.commands.search;
 
 		this.isLoggedIn = state.auth.isLoggedIn;
+		this.isMod = state.auth.isMod;
 
 		this.toastVisible = state.commands.toast.show;
 		this.toastMessage = state.commands.toast.message;
