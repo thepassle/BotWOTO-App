@@ -20,6 +20,10 @@ export const SharedStyles = html`
 <dom-module id="my-text-field" theme-for="vaadin-text-field">
   <template>
     <style>
+		* {
+			font-family: 'Nunito';
+		}
+
 		[part="input-field"] {
 			background-color: #484b52;
 			color: white;
@@ -44,9 +48,23 @@ export const SharedStyles = html`
   </template>
 </dom-module>
 
+<dom-module id="dropdown" theme-for="vaadin-dropdown-menu">
+  <template>
+    <style>
+	* {
+		font-family: 'Nunito';
+	}
+    </style>
+  </template>
+</dom-module>
+
 <dom-module id="my-text-" theme-for="vaadin-text-area">
   <template>
     <style>
+		* {
+			font-family: 'Nunito';
+		}
+
 		[part="input-field"] {
 			background-color: #484b52;
 			color: white;
@@ -75,10 +93,23 @@ export const SharedStyles = html`
   </template>
 </dom-module>
 
+<dom-module id="my--field" theme-for="vaadin-item">
+  <template>
+    <style>
+		* {
+			font-size: 14px;
+		}
+    </style>
+  </template>
+</dom-module>
 
 <dom-module id="my--field" theme-for="vaadin-button">
   <template>
     <style>
+		* {
+			font-family: 'Nunito';
+		}
+
     	:host([focus-ring]) {
     		box-shadow: none;
 	    }
