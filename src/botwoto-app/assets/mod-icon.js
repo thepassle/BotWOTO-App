@@ -9,7 +9,7 @@ class ModIcon extends LitElement {
 		return {
 			width: Number,
 			height: Number
-		}
+		};
 	}
 
 	_render({width, height}) {

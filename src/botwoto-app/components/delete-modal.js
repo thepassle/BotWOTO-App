@@ -22,7 +22,7 @@ class DeleteModal extends connect(store)(LitElement) {
 	static get properties() {
 		return {
 			command: Object
-		}
+		};
 	}
 
 	constructor(){
@@ -46,10 +46,10 @@ class DeleteModal extends connect(store)(LitElement) {
 					</vaadin-button>
 				</div>
 			</div>
-			`
+		`;
 	}
 
-	_stateChanged(state){}
+	_stateChanged(){}
 }
 
 customElements.define('delete-modal', DeleteModal);

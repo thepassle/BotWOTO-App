@@ -9,7 +9,7 @@ class DeleteIcon extends LitElement {
 			width: Number,
 			height: Number,
 			fill: String
-		}
+		};
 	}
 
 	_render({width, height, fill}) {

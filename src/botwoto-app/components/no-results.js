@@ -20,7 +20,7 @@ class NoResults extends LitElement {
 			<div class="no-results">
 				<h4>No results! :(</h4>
 			</div>
-		`
+		`;
 	}
 }
 

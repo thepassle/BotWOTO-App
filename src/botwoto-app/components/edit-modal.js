@@ -89,7 +89,7 @@ class EditModal extends connect(store)(LitElement) {
 					</vaadin-button>
 				</div>
 			</div>
-			`;
+		`;
 	}
 
 	_stateChanged(){}

@@ -31,7 +31,7 @@ class BotwotoCommandsList extends connect(store)(LitElement) {
 			isLoggedIn: Boolean,
 			isMod: Boolean,
 			search: String
-		}
+		};
 	}
 
 	constructor() {
@@ -44,7 +44,7 @@ class BotwotoCommandsList extends connect(store)(LitElement) {
 
 	_filteredCommands(search) {
 		return this.commands.filter((command) => {
-        	return command.command.toLowerCase().includes(search.toLowerCase()) || command.reply.toLowerCase().includes(search.toLowerCase());
+			return command.command.toLowerCase().includes(search.toLowerCase()) || command.reply.toLowerCase().includes(search.toLowerCase());
         });
 	}
 
@@ -57,7 +57,7 @@ class BotwotoCommandsList extends connect(store)(LitElement) {
 		return unsafeHTML(reply);
 	}
 
-	_render({commands, isLoggedIn, isMod, search}) {
+	_render({isLoggedIn, isMod, search}) {
 		return html`
 			${SharedStyles}
 			${CommandContainerStyles}

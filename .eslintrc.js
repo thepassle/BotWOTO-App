@@ -13,6 +13,8 @@ module.exports = {
             "error",
             "tab"
         ],
+        "indent": "off",
+
         "linebreak-style": [
             "error",
             "unix"
@@ -25,5 +27,6 @@ module.exports = {
             "error",
             "always"
         ]
-    }
+    },
+
 };

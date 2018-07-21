@@ -68,4 +68,4 @@ export const ModalStyles = html`<style>
 	      width: 100%;
 	    }
 	}
-</style>`
+</style>`;

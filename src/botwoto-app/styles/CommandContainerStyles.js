@@ -131,4 +131,4 @@ export const CommandContainerStyles = html`
 			min-width: 100%;
 		}
 	}
-</style>`
+</style>`;

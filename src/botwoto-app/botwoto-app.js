@@ -34,8 +34,6 @@ import { updateSearch } from '../actions/commands.js';
 import { logout } from '../actions/auth.js';
 import { resetError } from '../actions/commands.js';
 
-import commands from '../reducers/commands.js';
-
 class BotWotoApp extends connect(store)(LitElement) {
 
 	static get properties() {
@@ -53,7 +51,7 @@ class BotWotoApp extends connect(store)(LitElement) {
 			updateErrorMsg: String,
 			toastVisible: Boolean,
 			toastMessage: String
-		}
+		};
 	}
 
 	// make action creators for store.dispatch(openModal({command, mode})) it can be nicer
@@ -66,22 +64,21 @@ class BotWotoApp extends connect(store)(LitElement) {
 	}
 
 	_firstRendered(){
-		this.addEventListener('data-changed', ()=>{console.log('changed')});
 		store.dispatch(fetchCommands());
 	}
 
-	_search(search){
+	_search(){
 		const query = this.shadowRoot.getElementById('search-bar').value;
 
 		store.dispatch(updateSearch(query));
 	}
 
 	handleLogin(){
-		window.location.href = "/auth/twitch";
+		window.location.href = '/auth/twitch';
 	}
 
 	handleLogout(){
-		window.location.href = "/auth/logout";
+		window.location.href = '/auth/logout';
 		store.dispatch(logout());
 	}
 
@@ -97,7 +94,7 @@ class BotWotoApp extends connect(store)(LitElement) {
 						${isLoggedIn
 							? 	
 							isMod	?	
-									html`<vaadin-button theme="icon" on-tap="${() => store.dispatch(openModal({command: {}, mode: 'add'}))}" class="add" dialog-confirm autofocus>
+								html`<vaadin-button theme="icon" on-tap="${() => store.dispatch(openModal({command: {}, mode: 'add'}))}" class="add" dialog-confirm autofocus>
 									    <add-icon slot="prefix" width="20" height="20" fill="white"></add-icon>
 									    <span class="mb-hidden">Add</span>
 									</vaadin-button>
@@ -116,8 +113,8 @@ class BotWotoApp extends connect(store)(LitElement) {
 				</app-toolbar>
 
 				<app-toolbar class="search-cont">
-					<vaadin-text-field placeholder="Search" id="search-bar" on-input="${(search)=>this._search(search)}" value=${search}>
-						<div slot="suffix"><search-icon width="20" height="20" on-click="${(search) => this._search(search)}"></search-icon></div>
+					<vaadin-text-field placeholder="Search" id="search-bar" on-input="${()=>this._search()}" value=${search}>
+						<div slot="suffix"><search-icon width="20" height="20" on-click="${() => this._search()}"></search-icon></div>
 					</vaadin-text-field>
 				</app-toolbar>
 			</app-header>
@@ -157,8 +154,6 @@ class BotWotoApp extends connect(store)(LitElement) {
 	}
 
 	_stateChanged(state) {
-		console.log(state);
-
 		this.commands = state.commands.items;
 		this.loading = state.commands.loading;
 		this.error = state.commands.error;

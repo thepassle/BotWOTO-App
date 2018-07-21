@@ -24,7 +24,7 @@ class AddModal extends connect(store)(LitElement) {
 		return {
 			inputIsValid: Boolean,
 			commands: Array
-		}
+		};
 	}
 
 	constructor(){
@@ -37,8 +37,8 @@ class AddModal extends connect(store)(LitElement) {
 		const clearance = this.shadowRoot.getElementById('clearance').value;
 		const reply = this.shadowRoot.getElementById('reply').value || '';
 
-		const commandRegex = new RegExp("![a-zA-Z0-9]{1,}");
-		const clearanceRegex = new RegExp("(^sub$|^mod$|^all$)");
+		const commandRegex = new RegExp('![a-zA-Z0-9]{1,}');
+		const clearanceRegex = new RegExp('(^sub$|^mod$|^all$)');
 		const replyCheck = reply.length > 0;
 
 		this.inputIsValid = commandRegex.test(command) && clearanceRegex.test(clearance) && replyCheck;
@@ -49,15 +49,15 @@ class AddModal extends connect(store)(LitElement) {
 		const clearance = this.shadowRoot.getElementById('clearance').value;
 		const reply = this.shadowRoot.getElementById('reply').value;
 		
-	    const exists = this.commands.filter((item)=>{
-	      return item.command === command;
-	    });
+		const exists = this.commands.filter((item)=>{
+			return item.command === command;
+		});
 
-	    if(exists.length > 0){
-    	    store.dispatch(addCommandError({'error': true, 'message':'This command already exists!'}));
-	    } else {
+		if(exists.length > 0){
+			store.dispatch(addCommandError({'error': true, 'message':'This command already exists!'}));
+		} else {
 			store.dispatch(addCommand({command,clearance,reply}));
-	    }
+		}
 	}
 
 	_render({inputIsValid}) {
@@ -92,7 +92,7 @@ class AddModal extends connect(store)(LitElement) {
 					</vaadin-button>
 				</div>
 			</div>
-			`
+			`;
 	}
 
 	_stateChanged(state){

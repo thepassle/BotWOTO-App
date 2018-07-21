@@ -35,25 +35,13 @@ class BotwotoCommandsListItem extends connect(store)(LitElement) {
 		return {
 			command: Array,
 			isLoggedIn: Boolean
-		}
+		};
 	}
 
 	constructor() {
 		super();
 		this.command = [];
 		this.isLoggedIn = true;
-	}
-
-	_edit(command) {
-		this.shadowRoot.getElementById('editdialog').open();
-		// console.log(this.selectedCommand);
-		console.log(command);
-	}
-
-	_delete(command) {
-		this.shadowRoot.getElementById('deletedialog').open();
-		// console.log(this.selectedCommand);
-		console.log(command);	
 	}
 
 	_render({command, isLoggedIn}) {
@@ -95,8 +83,8 @@ class BotwotoCommandsListItem extends connect(store)(LitElement) {
 		`;
 	}
 
-	_stateChanged(state) {
-		console.log(state);
+	_stateChanged() {
+		// console.log(state);
 	}
 
 }

@@ -1,5 +1,5 @@
 import { html } from '@polymer/lit-element';
-import { BLUE, GREEN, PURPLE, RED } from './Colors'
+import { BLUE, GREEN, PURPLE, RED } from './Colors';
 
 export const AppStyles = html`
 <style>

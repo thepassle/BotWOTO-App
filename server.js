@@ -10,8 +10,6 @@ const passport       = require('passport');
 const OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 const request        = require('request');
 
-const socket = require('socket.io');
-
 const routes = require('./routes/api');
 const auth = require('./routes/auth');
 
@@ -20,7 +18,7 @@ const app = express();
 app.use(cookieSession({
 	maxAge: 24 * 60 * 60 * 1000,
 	keys: ['test']
-}))
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.json());

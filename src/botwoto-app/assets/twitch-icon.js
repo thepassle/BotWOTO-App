@@ -6,7 +6,7 @@ class TwitchIcon extends LitElement {
 		return {
 			width: Number,
 			height: Number
-		}
+		};
 	}
 
 	_render({width, height}) {
