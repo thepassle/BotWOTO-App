@@ -34,13 +34,9 @@ export const CommandContainerStyles = html`
 	}
 
 	.command {
-		flex-basis: 25%;
+		min-width: 12ch;
 		word-break: break-all;
 		font-weight: 600;
-	}
-
-	.table--3cols > .table-cell { 
-		width: 33.33%; 
 	}
 
 	paper-item:nth-child(even) {

@@ -20,10 +20,6 @@ export const AppStyles = html`
     background-color: #36393e;
   }
 
-  paper-card {
-    min-width: 50%;
-  }
-
   paper-spinner.spinner-color {
     --paper-spinner-layer-1-color: ${BLUE};
     --paper-spinner-layer-2-color: ${BLUE};
