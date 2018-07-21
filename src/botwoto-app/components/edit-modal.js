@@ -27,7 +27,7 @@ class EditModal extends connect(store)(LitElement) {
 		}
 	}
 
-	constructor(){
+	constructor() {
 		super();
 		this.command = { command: '', reply: '', clearance:''};
 		this.inputIsValid = false;
