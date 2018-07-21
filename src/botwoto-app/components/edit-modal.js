@@ -34,19 +34,19 @@ class EditModal extends connect(store)(LitElement) {
 	}
 
 	_validate() {
-		let clearance = this.shadowRoot.getElementById('clearance').value;
-		let reply = this.shadowRoot.getElementById('reply').value;
+		const clearance = this.shadowRoot.getElementById('clearance').value;
+		const reply = this.shadowRoot.getElementById('reply').value;
 
-		let clearanceRegex = new RegExp("(^sub$|^mod$|^all$)");
-		let replyCheck = reply.length > 0;
+		const clearanceRegex = new RegExp("(^sub$|^mod$|^all$)");
+		const replyCheck = reply.length > 0;
 
 		this.inputIsValid = clearanceRegex.test(clearance) && replyCheck;
 	}
 
 	_handleSubmit(){
-		let command = this.command.command;
-		let clearance = this.shadowRoot.getElementById('clearance').value;
-		let reply = this.shadowRoot.getElementById('reply').value;
+		const command = this.command.command;
+		const clearance = this.shadowRoot.getElementById('clearance').value;
+		const reply = this.shadowRoot.getElementById('reply').value;
 		
 		store.dispatch(editCommand({command,clearance,reply}));
 	}

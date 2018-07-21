@@ -34,23 +34,23 @@ class AddModal extends connect(store)(LitElement) {
 	}
 
 	_validate() {
-		let command = this.shadowRoot.getElementById('command').value;
-		let clearance = this.shadowRoot.getElementById('clearance').value;
-		let reply = this.shadowRoot.getElementById('reply').value || '';
+		const command = this.shadowRoot.getElementById('command').value;
+		const clearance = this.shadowRoot.getElementById('clearance').value;
+		const reply = this.shadowRoot.getElementById('reply').value || '';
 
-		let commandRegex = new RegExp("![a-zA-Z0-9]{1,}");
-		let clearanceRegex = new RegExp("(^sub$|^mod$|^all$)");
-		let replyCheck = reply.length > 0;
+		const commandRegex = new RegExp("![a-zA-Z0-9]{1,}");
+		const clearanceRegex = new RegExp("(^sub$|^mod$|^all$)");
+		const replyCheck = reply.length > 0;
 
 		this.inputIsValid = commandRegex.test(command) && clearanceRegex.test(clearance) && replyCheck;
 	}
 
 	_handleSubmit() {
-		let command = this.shadowRoot.getElementById('command').value;
-		let clearance = this.shadowRoot.getElementById('clearance').value;
-		let reply = this.shadowRoot.getElementById('reply').value;
+		const command = this.shadowRoot.getElementById('command').value;
+		const clearance = this.shadowRoot.getElementById('clearance').value;
+		const reply = this.shadowRoot.getElementById('reply').value;
 		
-	    let exists = this.commands.filter((item)=>{
+	    const exists = this.commands.filter((item)=>{
 	      return item.command === command;
 	    });
 
