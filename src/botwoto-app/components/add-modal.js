@@ -70,15 +70,15 @@ class AddModal extends connect(store)(LitElement) {
 				<h1>Add command</h1>
 				<vaadin-text-field on-input="${() => this._validate()}" id="command" required error-message="First character must be an exclamation mark" pattern="![a-zA-Z0-9]{1,}" label="command" value=""></vaadin-text-field>
 
-<vaadin-dropdown-menu on-value-changed="${() => this._validate()}" id="clearance" value="all" label="clearance" required>
-  <template>
-    <vaadin-list-box>
-      <vaadin-item value="all">all</vaadin-item>
-      <vaadin-item value="sub">sub</vaadin-item>
-      <vaadin-item value="mod">mod</vaadin-item>
-    </vaadin-list-box>
-  </template>
-</vaadin-dropdown-menu>
+				<vaadin-dropdown-menu on-value-changed="${() => this._validate()}" id="clearance" value="all" label="clearance" required>
+				  <template>
+				    <vaadin-list-box>
+				      <vaadin-item value="all">all</vaadin-item>
+				      <vaadin-item value="sub">sub</vaadin-item>
+				      <vaadin-item value="mod">mod</vaadin-item>
+				    </vaadin-list-box>
+				  </template>
+				</vaadin-dropdown-menu>
 
 				<vaadin-text-area on-input="${() => this._validate()}" id="reply" required label="reply" value=""></vaadin-text-area>
 			    

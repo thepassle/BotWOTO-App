@@ -51,6 +51,13 @@ class EditModal extends connect(store)(LitElement) {
 		store.dispatch(editCommand({command,clearance,reply}));
 	}
 
+	_firstRendered() {
+		const textArea = this.shadowRoot.getElementById('reply');
+		setTimeout(() => {
+			textArea._textAreaValueChanged();
+		});
+	}
+
 	_render({command, inputIsValid}) {
 		return html`
 			${SharedStyles}
@@ -59,15 +66,15 @@ class EditModal extends connect(store)(LitElement) {
 			<div class="modal">
 				<h1>${command.command}</h1>
 
-<vaadin-dropdown-menu on-value-changed="${() => this._validate()}" id="clearance" value="${command.clearance}" label="clearance" required>
-  <template>
-    <vaadin-list-box>
-      <vaadin-item value="all">all</vaadin-item>
-      <vaadin-item value="sub">sub</vaadin-item>
-      <vaadin-item value="mod">mod</vaadin-item>
-    </vaadin-list-box>
-  </template>
-</vaadin-dropdown-menu>
+				<vaadin-dropdown-menu on-value-changed="${() => this._validate()}" id="clearance" value="${command.clearance}" label="clearance" required>
+				  <template>
+				    <vaadin-list-box>
+				      <vaadin-item value="all">all</vaadin-item>
+				      <vaadin-item value="sub">sub</vaadin-item>
+				      <vaadin-item value="mod">mod</vaadin-item>
+				    </vaadin-list-box>
+				  </template>
+				</vaadin-dropdown-menu>
 
 				<vaadin-text-area required on-input="${() => this._validate()}" id="reply" label="reply" value="${command.reply}"></vaadin-text-area>
 			    
