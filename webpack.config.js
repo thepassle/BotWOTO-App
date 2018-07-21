@@ -130,11 +130,6 @@ const productionConfig = merge([
           minifyJS: true
         }
       }),
-      new InjectManifest({
-        swSrc: resolve('src', 'service-worker.js'),
-        swDest: resolve(OUTPUT_PATH, 'sw.js'),
-        exclude: [/webcomponents-(?!loader).*\.js$/]
-      }),
       new CompressionPlugin({ test: /\.js$/ })
     ]
   }

@@ -3,6 +3,7 @@ import { LitElement, html } from '@polymer/lit-element/';
 import '@vaadin/vaadin-button/vaadin-button.js';
 import '@vaadin/vaadin-text-field/vaadin-text-field.js';
 import '@vaadin/vaadin-text-field/vaadin-text-area.js';
+import '@vaadin/vaadin-dropdown-menu/vaadin-dropdown-menu.js';
 
 import { SharedStyles } from './../styles/SharedStyles';
 import { ModalStyles } from './../styles/ModalStyles';
@@ -58,7 +59,16 @@ class EditModal extends connect(store)(LitElement) {
 			<div class="modal">
 				<h1>${command.command}</h1>
 
-				<vaadin-text-field required on-input="${() => this._validate()}" id="clearance" required error-message="Valid: sub/mod/all" pattern="(^sub$|^mod$|^all$)" label="clearance" value="${command.clearance}"></vaadin-text-field>
+<vaadin-dropdown-menu on-value-changed="${() => this._validate()}" id="clearance" value="${command.clearance}" label="clearance" required>
+  <template>
+    <vaadin-list-box>
+      <vaadin-item value="all">all</vaadin-item>
+      <vaadin-item value="sub">sub</vaadin-item>
+      <vaadin-item value="mod">mod</vaadin-item>
+    </vaadin-list-box>
+  </template>
+</vaadin-dropdown-menu>
+
 				<vaadin-text-area required on-input="${() => this._validate()}" id="reply" label="reply" value="${command.reply}"></vaadin-text-area>
 			    
 			    <div class="buttons">

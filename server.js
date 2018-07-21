@@ -10,6 +10,8 @@ const passport       = require('passport');
 const OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 const request        = require('request');
 
+const socket = require('socket.io');
+
 const routes = require('./routes/api');
 const auth = require('./routes/auth');
 

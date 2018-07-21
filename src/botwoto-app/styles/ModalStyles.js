@@ -36,6 +36,7 @@ export const ModalStyles = html`<style>
 	vaadin-text-area {
 		min-height: 150px; 
 		max-height: 250px;
+		width: 37ch;
 	}
 
 	vaadin-text-field {
