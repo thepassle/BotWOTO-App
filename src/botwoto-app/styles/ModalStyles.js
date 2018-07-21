@@ -39,6 +39,10 @@ export const ModalStyles = html`<style>
 		width: 37ch;
 	}
 
+	vaadin-dropdown-menu {
+		width: 100%;
+	}
+
 	vaadin-text-field {
 		width: 37ch;
 	}
@@ -53,6 +57,14 @@ export const ModalStyles = html`<style>
 
 	@media only screen and (max-width: 600px) {
 	    vaadin-text-field {
+	      width: 100%;
+	    }
+
+	    vaadin-text-area {
+	      width: 100%;
+	    }
+
+	    vaadin-dropdown-menu {
 	      width: 100%;
 	    }
 	}

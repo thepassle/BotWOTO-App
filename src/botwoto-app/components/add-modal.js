@@ -1,6 +1,6 @@
 import { LitElement, html } from '@polymer/lit-element/';
 
-import '@vaadin/vaadin-button/vaadin-button.js';
+import '@vaadin/vaadin-button/vaadin-button';
 import '@vaadin/vaadin-text-field/vaadin-text-field.js';
 import '@vaadin/vaadin-text-field/vaadin-text-area.js';
 import '@vaadin/vaadin-dropdown-menu/vaadin-dropdown-menu.js';
@@ -16,11 +16,10 @@ import { store } from '../../store.js';
 import { addCommand } from '../../actions/commands.js';
 import { addCommandError } from '../../actions/commands.js';
 
-import './../assets/delete-icon';
-import './../assets/edit-icon';
+import '../assets/delete-icon';
+import '../assets/edit-icon';
 
 class AddModal extends connect(store)(LitElement) {
-
 	static get properties() {
 		return {
 			inputIsValid: Boolean,

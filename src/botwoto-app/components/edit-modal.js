@@ -24,7 +24,7 @@ class EditModal extends connect(store)(LitElement) {
 		return {
 			command: Object,
 			inputIsValid: Boolean
-		}
+		};
 	}
 
 	constructor() {
@@ -37,7 +37,7 @@ class EditModal extends connect(store)(LitElement) {
 		const clearance = this.shadowRoot.getElementById('clearance').value;
 		const reply = this.shadowRoot.getElementById('reply').value;
 
-		const clearanceRegex = new RegExp("(^sub$|^mod$|^all$)");
+		const clearanceRegex = new RegExp('(^sub$|^mod$|^all$)');
 		const replyCheck = reply.length > 0;
 
 		this.inputIsValid = clearanceRegex.test(clearance) && replyCheck;
@@ -89,10 +89,10 @@ class EditModal extends connect(store)(LitElement) {
 					</vaadin-button>
 				</div>
 			</div>
-			`
+			`;
 	}
 
-	_stateChanged(state){}
+	_stateChanged(){}
 }
 
 customElements.define('edit-modal', EditModal);
