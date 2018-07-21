@@ -58,7 +58,7 @@ passport.use('twitch', new OAuth2Strategy({
     tokenURL: 'https://api.twitch.tv/kraken/oauth2/token',
     clientID: TWITCH_CLIENT_ID,
     clientSecret: TWITCH_SECRET,
-    callbackURL: 'http://localhost:3000/auth/twitch/callback',
+    callbackURL: 'https://botwoto.herokuapp.com/auth/twitch/callback',
     state: true
   },
   function(accessToken, refreshToken, profile, done) {
