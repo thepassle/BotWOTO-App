@@ -52,18 +52,18 @@ class HistoryModal extends connect(store)(LitElement) {
 				  }
 			</style>
 			<div class="modal history-modal">
-				<h1>${command.command} log:</h1>
+				<h1>${command.command} log</h1>
 				
 				<div class="history">
 					${history.length !== 0
 						? html`
 								${history.map((item) => {
 									return html`
-										<div style="display: flex; flex-direction: row;">
+										<div style="display: flex; flex-direction: row; justify-content: space-between;">
 											${item.byUser
 												? html`
 													<p><strong>${item.byUser}</strong></p>
-													<p style="margin-left: 5px;">${item.updatedAt}:</p>
+													<p style="margin-left: 5px;">${item.updatedAt.replace(' ', ', ')}</p>
 												`
 												: html`
 													<p><strong>First created:</strong></p>
@@ -73,7 +73,6 @@ class HistoryModal extends connect(store)(LitElement) {
 										<paper-item style="border-radius: 5px; background-color: #484b52; font-family: 'Nunito'; color: white; margin-bottom: 20px;" >
 											<div style="width: 100%;" class="table table--3cols">
 												<div style="display: flex; flex-direction: row; justify-content: space-between;">
-													<h4 style="margin-bottom: 0px;">${item.command}</h4>
 													<h4 style="margin-bottom: 0px;">${item.clearance}</h4>
 												</div>
 												<div class="reply"><p>${item.reply}</p></div>

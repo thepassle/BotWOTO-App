@@ -35,6 +35,6 @@ app.get('/auth/logout', function(req, res){
 app.use(history());
 app.use(serveStatic(__dirname + '/dist/'));
 
-app.listen(process.env.port || 8081, function () {
+app.listen(process.env.PORT || 8081, function () {
     console.log('Node app is running on port 8081');
 });
