@@ -4,7 +4,6 @@ import '@polymer/paper-tooltip/paper-tooltip.js';
 import { GREEN } from '../styles/Colors';
 
 class SubIcon extends LitElement {
-	
 	static get properties() {
 		return {
 			width: Number,

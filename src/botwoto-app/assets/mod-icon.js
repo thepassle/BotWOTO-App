@@ -4,7 +4,6 @@ import '@polymer/paper-tooltip/paper-tooltip.js';
 import { GREEN } from '../styles/Colors';
 
 class ModIcon extends LitElement {
-	
 	static get properties() {
 		return {
 			width: Number,

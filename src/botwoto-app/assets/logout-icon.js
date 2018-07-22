@@ -1,7 +1,6 @@
 import { LitElement, html } from '@polymer/lit-element/';
 
 class LogoutIcon extends LitElement {
-	
 	static get properties() {
 		return {
 			width: Number,

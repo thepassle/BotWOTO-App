@@ -3,7 +3,6 @@ import { LitElement, html } from '@polymer/lit-element/';
 import '@polymer/paper-tooltip/paper-tooltip.js';
 
 class EditIcon extends LitElement {
-	
 	static get properties() {
 		return {
 			width: Number,

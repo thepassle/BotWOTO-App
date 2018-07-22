@@ -50,7 +50,7 @@ class BotwotoCommandsList extends connect(store)(LitElement) {
 
 	_injectEmotes(reply) {
 		reply.split(' ').forEach((word) => {
-			if(emotes[word]){
+			if (emotes[word]) {
 				reply = reply.replace(word, emotes[word]);
 			}
 		});
@@ -70,17 +70,17 @@ class BotwotoCommandsList extends connect(store)(LitElement) {
 				</div>
 			</paper-item>
 
-			${ this._filteredCommands(search).length === 0 ? html`<no-results></no-results>` : ''}
+			${this._filteredCommands(search).length === 0 ? html`<no-results></no-results>` : ''}
 
-			${ this._filteredCommands(search).map((command) => html`
+			${this._filteredCommands(search).map((command) => html`
 				<paper-item>
 					<div class="table table--3cols">
 						<div class="table-cell command"><h4>${command.command}</h4></div>
 						<div class="table-cell clearance">
-							${command.clearance === 'mod' 
+							${command.clearance === 'mod'
 								? html`<mod-icon width="20" height="20"></mod-icon>`
-								: command.clearance === 'sub' 
-									? html`<sub-icon width="20" height="20"></sub-icon>` 
+								: command.clearance === 'sub'
+									? html`<sub-icon width="20" height="20"></sub-icon>`
 									: ''
 							}
 						</div>
@@ -93,12 +93,12 @@ class BotwotoCommandsList extends connect(store)(LitElement) {
 								<div class="delete">
 									<delete-icon on-tap="${() => store.dispatch(openModal({command, mode: 'delete'}))}" width="24" height="24" fill="${RED}"></delete-icon>
 								</div>
-								` 
+								`
 							: html`
 								<div style="width:48px; max-width:48px; min-width:48px;" class="edit">
 									
 								</div>
-								` 
+								`
 						}
 					</div>
 				</paper-item>

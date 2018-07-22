@@ -25,9 +25,9 @@ class DeleteModal extends connect(store)(LitElement) {
 		};
 	}
 
-	constructor(){
+	constructor() {
 		super();
-		this.command = { command: '', reply: '', clearance:''};
+		this.command = { command: '', reply: '', clearance: ''};
 	}
 
 	_render({command}) {
@@ -49,7 +49,7 @@ class DeleteModal extends connect(store)(LitElement) {
 		`;
 	}
 
-	_stateChanged(){}
+	_stateChanged() {}
 }
 
 customElements.define('delete-modal', DeleteModal);

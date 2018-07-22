@@ -1,11 +1,6 @@
 import { LitElement, html } from '@polymer/lit-element/';
 
 class NoResults extends LitElement {
-
-	constructor(){
-		super();
-	}
-
 	_render() {
 		return html`
 			<style>

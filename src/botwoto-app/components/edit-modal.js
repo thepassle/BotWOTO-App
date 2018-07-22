@@ -29,7 +29,7 @@ class EditModal extends connect(store)(LitElement) {
 
 	constructor() {
 		super();
-		this.command = { command: '', reply: '', clearance:''};
+		this.command = { command: '', reply: '', clearance: ''};
 		this.inputIsValid = false;
 	}
 
@@ -43,12 +43,12 @@ class EditModal extends connect(store)(LitElement) {
 		this.inputIsValid = clearanceRegex.test(clearance) && replyCheck;
 	}
 
-	_handleSubmit(){
+	_handleSubmit() {
 		const command = this.command.command;
 		const clearance = this.shadowRoot.getElementById('clearance').value;
 		const reply = this.shadowRoot.getElementById('reply').value;
-		
-		store.dispatch(editCommand({command,clearance,reply}));
+
+		store.dispatch(editCommand({command, clearance, reply}));
 	}
 
 	_firstRendered() {
@@ -92,7 +92,7 @@ class EditModal extends connect(store)(LitElement) {
 		`;
 	}
 
-	_stateChanged(){}
+	_stateChanged() {}
 }
 
 customElements.define('edit-modal', EditModal);

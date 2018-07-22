@@ -13,8 +13,7 @@ import { closeModal } from '../../actions/modal';
 import { connect } from 'pwa-helpers/connect-mixin.js';
 import { store } from '../../store.js';
 
-import { addCommand } from '../../actions/commands.js';
-import { addCommandError } from '../../actions/commands.js';
+import { addCommand, addCommandError } from '../../actions/commands.js';
 
 import '../assets/delete-icon';
 import '../assets/edit-icon';
@@ -27,7 +26,7 @@ class AddModal extends connect(store)(LitElement) {
 		};
 	}
 
-	constructor(){
+	constructor() {
 		super();
 		this.inputIsValid = false;
 	}
@@ -48,15 +47,15 @@ class AddModal extends connect(store)(LitElement) {
 		const command = this.shadowRoot.getElementById('command').value;
 		const clearance = this.shadowRoot.getElementById('clearance').value;
 		const reply = this.shadowRoot.getElementById('reply').value;
-		
-		const exists = this.commands.filter((item)=>{
+
+		const exists = this.commands.filter((item) => {
 			return item.command === command;
 		});
 
-		if(exists.length > 0){
-			store.dispatch(addCommandError({'error': true, 'message':'This command already exists!'}));
+		if (exists.length > 0) {
+			store.dispatch(addCommandError({'error': true, 'message': 'This command already exists!'}));
 		} else {
-			store.dispatch(addCommand({command,clearance,reply}));
+			store.dispatch(addCommand({command, clearance, reply}));
 		}
 	}
 
@@ -95,7 +94,7 @@ class AddModal extends connect(store)(LitElement) {
 			`;
 	}
 
-	_stateChanged(state){
+	_stateChanged(state) {
 		this.commands = state.commands.items;
 	}
 }
