@@ -23,7 +23,8 @@ class EditModal extends connect(store)(LitElement) {
 	static get properties() {
 		return {
 			command: Object,
-			inputIsValid: Boolean
+			inputIsValid: Boolean,
+			username: String
 		};
 	}
 
@@ -47,8 +48,9 @@ class EditModal extends connect(store)(LitElement) {
 		const command = this.command.command;
 		const clearance = this.shadowRoot.getElementById('clearance').value;
 		const reply = this.shadowRoot.getElementById('reply').value;
+		const user = this.username;
 
-		store.dispatch(editCommand({command, clearance, reply}));
+		store.dispatch(editCommand({command, clearance, reply, user}));
 	}
 
 	_firstRendered() {
@@ -92,7 +94,9 @@ class EditModal extends connect(store)(LitElement) {
 		`;
 	}
 
-	_stateChanged() {}
+	_stateChanged(state) {
+		this.username = state.auth.username;
+	}
 }
 
 customElements.define('edit-modal', EditModal);

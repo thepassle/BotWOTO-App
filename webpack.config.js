@@ -61,6 +61,10 @@ const commonConfig = merge([
     },
     module: {
       rules: [
+      {
+    test: /web-animations-next-lite.min.js/,
+    use: 'imports-loader?this=>window',
+},
         {
           test: /\.js$/,
           // We need to transpile Polymer, do not exclude node_modules

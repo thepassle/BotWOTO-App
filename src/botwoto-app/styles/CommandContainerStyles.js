@@ -10,6 +10,10 @@ export const CommandContainerStyles = html`
 		width: 100%;
 	}
 
+	paper-item {
+		cursor: default;
+	}
+
 	.table-cell {
 		padding: 8px;
 		width: 100%;
@@ -31,6 +35,7 @@ export const CommandContainerStyles = html`
 		min-width: 27ch;
 		max-width: 27ch;
 		padding-right: 56px;
+		cursor: pointer;
 	}
 
 	.command {

@@ -52,7 +52,8 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(user, done) {
     done(null, user);
 });
-
+// https://botwoto.herokuapp.com/auth/twitch/callback
+// http://localhost:3000/auth/twitch/callback
 passport.use('twitch', new OAuth2Strategy({
     authorizationURL: 'https://api.twitch.tv/kraken/oauth2/authorize',
     tokenURL: 'https://api.twitch.tv/kraken/oauth2/token',

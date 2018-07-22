@@ -73,36 +73,47 @@ class BotwotoCommandsList extends connect(store)(LitElement) {
 			${this._filteredCommands(search).length === 0 ? html`<no-results></no-results>` : ''}
 
 			${this._filteredCommands(search).map((command) => html`
-				<paper-item>
-					<div class="table table--3cols">
-						<div class="table-cell command"><h4>${command.command}</h4></div>
-						<div class="table-cell clearance">
-							${command.clearance === 'mod'
-								? html`<mod-icon width="20" height="20"></mod-icon>`
-								: command.clearance === 'sub'
-									? html`<sub-icon width="20" height="20"></sub-icon>`
-									: ''
-							}
-						</div>
-						<div class="table-cell reply">${this._injectEmotes(command.reply)}</div>
-						${isLoggedIn && isMod
-							? html`
+				${isLoggedIn && isMod
+					? html`
+						<paper-item>
+							<div class="table table--3cols">
+								<div on-tap="${() => store.dispatch(openModal({command, mode: 'history'}))}" class="table-cell command"><h4>${command.command}</h4></div>
+								<div on-tap="${() => store.dispatch(openModal({command, mode: 'history'}))}" class="table-cell clearance">
+									${command.clearance === 'mod'
+										? html`<mod-icon width="20" height="20"></mod-icon>`
+										: command.clearance === 'sub'
+											? html`<sub-icon width="20" height="20"></sub-icon>`
+											: ''
+									}
+								</div>
+								<div on-tap="${() => store.dispatch(openModal({command, mode: 'history'}))}" class="table-cell reply">${this._injectEmotes(command.reply)}</div>
 								<div class="edit">
 									<edit-icon on-tap="${() => store.dispatch(openModal({command, mode: 'edit'}))}" width="24" height="24" fill="${GREEN}"></edit-icon>
 								</div>
 								<div class="delete">
 									<delete-icon on-tap="${() => store.dispatch(openModal({command, mode: 'delete'}))}" width="24" height="24" fill="${RED}"></delete-icon>
 								</div>
-								`
-							: html`
-								<div style="width:48px; max-width:48px; min-width:48px;" class="edit">
-									
+							</div>
+						</paper-item>`
+					: html`
+						<paper-item>
+							<div class="table table--3cols">
+								<div class="table-cell command"><h4>${command.command}</h4></div>
+								<div class="table-cell clearance">
+									${command.clearance === 'mod'
+										? html`<mod-icon width="20" height="20"></mod-icon>`
+										: command.clearance === 'sub'
+											? html`<sub-icon width="20" height="20"></sub-icon>`
+											: ''
+									}
 								</div>
-								`
-						}
-					</div>
-				</paper-item>
-			`)}
+								<div class="table-cell reply">${this._injectEmotes(command.reply)}</div>
+								<div style="width:48px; max-width:48px; min-width:48px;" class="edit">
+								</div>
+							</div>
+						</paper-item>`
+				}`
+			)}
 		`;
 	}
 

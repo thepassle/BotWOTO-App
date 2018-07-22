@@ -22,7 +22,8 @@ class AddModal extends connect(store)(LitElement) {
 	static get properties() {
 		return {
 			inputIsValid: Boolean,
-			commands: Array
+			commands: Array,
+			username: String
 		};
 	}
 
@@ -47,6 +48,7 @@ class AddModal extends connect(store)(LitElement) {
 		const command = this.shadowRoot.getElementById('command').value;
 		const clearance = this.shadowRoot.getElementById('clearance').value;
 		const reply = this.shadowRoot.getElementById('reply').value;
+		const user = this.username;
 
 		const exists = this.commands.filter((item) => {
 			return item.command === command;
@@ -55,7 +57,7 @@ class AddModal extends connect(store)(LitElement) {
 		if (exists.length > 0) {
 			store.dispatch(addCommandError({'error': true, 'message': 'This command already exists!'}));
 		} else {
-			store.dispatch(addCommand({command, clearance, reply}));
+			store.dispatch(addCommand({command, clearance, reply, user}));
 		}
 	}
 
@@ -95,6 +97,7 @@ class AddModal extends connect(store)(LitElement) {
 	}
 
 	_stateChanged(state) {
+		this.username = state.auth.username;
 		this.commands = state.commands.items;
 	}
 }

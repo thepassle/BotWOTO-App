@@ -16,6 +16,7 @@ import './components/botwoto-commands-list';
 import './components/add-modal';
 import './components/edit-modal';
 import './components/delete-modal';
+import './components/history-modal';
 
 import './assets/twitch-icon';
 import './assets/search-icon';
@@ -130,6 +131,7 @@ class BotWotoApp extends connect(store)(LitElement) {
 				${modalMode === 'add' ? html`<add-modal></add-modal>` : ''}
 				${modalMode === 'edit' ? html`<edit-modal command=${selectedCommand}></edit-modal>` : ''}
 				${modalMode === 'delete' ? html`<delete-modal command=${selectedCommand}></delete-modal>` : ''}
+				${modalMode === 'history' ? html`<history-modal command=${selectedCommand}>Histoire!</history-modal>` : ''}
 			</paper-dialog>
 
 			<paper-dialog class="update-loading" opened=${updateLoading} modal>

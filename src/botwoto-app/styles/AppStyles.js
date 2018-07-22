@@ -29,6 +29,7 @@ export const AppStyles = html`
   }
 
   paper-dialog {
+      border-radius: 5px;
       background-color: #36393e;
       flex-direction: row;
   }

@@ -12,6 +12,16 @@ export const ModalStyles = html`<style>
 		background-color: #484b52;
 	}
 
+	.history {
+		height:300px; 
+		word-break: break-word;
+		overflow: auto;
+	}
+
+	h3 {
+		color: white;
+	}
+
 	vaadin-button {
 		cursor: pointer; 
 		align-self: flex-start; 
@@ -55,10 +65,18 @@ export const ModalStyles = html`<style>
 		color: white;
 	}
 
+	.history-modal {
+		width: 37ch;
+	}
+
 	@media only screen and (max-width: 600px) {
 	    vaadin-text-field {
 	      width: 100%;
 	    }
+
+	    .history-modal {
+		    width: calc(100% - 32px);
+		}
 
 	    vaadin-text-area {
 	      width: 100%;
