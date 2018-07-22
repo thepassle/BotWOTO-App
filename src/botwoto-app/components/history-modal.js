@@ -70,7 +70,7 @@ class HistoryModal extends connect(store)(LitElement) {
 												`
 											}
 										</div>
-										<paper-item style="border-radius: 5px; background-color: #484b52; font-family: 'Nunito'; color: white; margin-bottom: 20px;" >
+										<paper-item style="border-radius: 5px; background-color: #484b52; font-family: 'Nunito'; color: white; margin-bottom: 48px;" >
 											<div style="width: 100%;" class="table table--3cols">
 												<div style="display: flex; flex-direction: row; justify-content: space-between;">
 													<h4 style="margin-bottom: 0px;">${item.clearance}</h4>

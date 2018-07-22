@@ -46,7 +46,7 @@ export const ModalStyles = html`<style>
 	vaadin-text-area {
 		min-height: 150px; 
 		max-height: 250px;
-		width: 37ch;
+		width: 32ch;
 	}
 
 	vaadin-dropdown-menu {
@@ -54,7 +54,7 @@ export const ModalStyles = html`<style>
 	}
 
 	vaadin-text-field {
-		width: 37ch;
+		width: 32ch;
 	}
 
 	h1{
@@ -66,7 +66,7 @@ export const ModalStyles = html`<style>
 	}
 
 	.history-modal {
-		width: 37ch;
+		width: calc(32ch + 40px);
 	}
 
 	@media only screen and (max-width: 600px) {
