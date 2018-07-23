@@ -1,6 +1,8 @@
 # BotWOTO Commands
 
-Crud app to manage the list of commands for the BotWOTO twitch chatbot. Made using webpack/lithtml/redux/express.
+CRUD app to manage the list of commands for the BotWOTO twitch chatbot. Made using webpack/lithtml/redux/express.
+
+![img](https://i.imgur.com/KfwRDv6.png)
 
 ## Install dependencies
 
