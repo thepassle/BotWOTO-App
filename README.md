@@ -1,3 +1,6 @@
+![Built with create-lit-app](https://img.shields.io/badge/built%20with-create--lit--app-blue.svg)
+
+
 # BotWOTO Commands
 
 CRUD app to manage the list of commands for the BotWOTO twitch chatbot. Made using webpack/lithtml/redux/express.
