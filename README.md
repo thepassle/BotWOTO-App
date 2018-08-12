@@ -1,5 +1,4 @@
-![Built with create-lit-app](https://img.shields.io/badge/built%20with-create--lit--app-blue.svg)
-
+[![Built with create-lit-app](https://img.shields.io/badge/built%20with-create--lit--app-blue.svg)](https://github.com/thepassle/create-lit-app) [![Mentioned in Awesome lit-html>](https://awesome.re/mentioned-badge.svg)](https://github.com/web-padawan/awesome-lit-html)
 
 # BotWOTO Commands
 
